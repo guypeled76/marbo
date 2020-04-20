@@ -16,23 +16,30 @@ public class Position : MonoBehaviour
     public Position forwardLeft;
     public Position forwardRight;
 
+    public int row;
+    public int column;
+
     public List<Piece> pieces;
 
-    public void Initialize(Manager manager)
+    public void Initialize(Board board)
     {
         pieces = new List<Piece>(this.GetComponentsInChildren<Piece>());
 
         Location location = Location.Create(this.name);
 
         // Initialize the relative positions
-        back = manager.GetPositionByName(location.back, back);
-        backLeft = manager.GetPositionByName(location.backLeft, backLeft);
-        backRight = manager.GetPositionByName(location.backRight, backRight);
-        forward = manager.GetPositionByName(location.forward, forward);
-        forwardRight = manager.GetPositionByName(location.forwardRight, forwardRight);
-        forwardLeft = manager.GetPositionByName(location.forwardLeft, forwardLeft);
-        left = manager.GetPositionByName(location.left, left);
-        right = manager.GetPositionByName(location.right, right);
+        back = board.GetPositionByName(location.back, back);
+        backLeft = board.GetPositionByName(location.backLeft, backLeft);
+        backRight = board.GetPositionByName(location.backRight, backRight);
+        forward = board.GetPositionByName(location.forward, forward);
+        forwardRight = board.GetPositionByName(location.forwardRight, forwardRight);
+        forwardLeft = board.GetPositionByName(location.forwardLeft, forwardLeft);
+        left = board.GetPositionByName(location.left, left);
+        right = board.GetPositionByName(location.right, right);
+
+        row = location.row;
+        column = location.column;
+        
     }
 
     internal void SelectPiece(Piece piece)

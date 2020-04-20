@@ -23,6 +23,9 @@ public struct Location
     public string left;
     public string right;
 
+    public int row;
+    public int column;
+
     /// <summary>
     /// Create a location value based on the location name
     /// </summary>
@@ -51,6 +54,8 @@ public struct Location
     private static Location Create(char row, int column)
     {
         Location location = new Location();
+        location.row = (row - 'a') + 1;
+        location.column = column;
         location.back = Create(row, column, 0, -1);
         location.backLeft = Create(row, column, -1, -1);
         location.backRight = Create(row, column, 1, -1);
