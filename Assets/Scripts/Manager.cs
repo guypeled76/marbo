@@ -7,6 +7,7 @@ public class Manager : MonoBehaviour
 {
     private Board board;
 
+
     public string boardState;
 
     private void Start()

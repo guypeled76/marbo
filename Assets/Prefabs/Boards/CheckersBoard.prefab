@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8538046717329441005}
-  - component: {fileID: 487016921432845878}
+  - component: {fileID: 90172441808402647}
   m_Layer: 0
   m_Name: CheckersBoard
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &487016921432845878
+--- !u!114 &90172441808402647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2057849709394528929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad9d7f696183447891998966737bd76, type: 3}
+  m_Script: {fileID: 11500000, guid: db1b568a9ca1d47f2892bab28505edcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boardState: 
 --- !u!1001 &64750540076449232
 PrefabInstance:
   m_ObjectHideFlags: 0
