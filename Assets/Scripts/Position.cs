@@ -44,7 +44,7 @@ public class Position : MonoBehaviour
 
     internal void SelectPiece(Piece piece)
     {
-        GetComponentInParent<Manager>().SelectPiece(this, piece);
+        GetComponentInParent<Manager>().SelectPosition(this, piece);
     }
 
 }
