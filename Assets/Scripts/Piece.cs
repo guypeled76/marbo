@@ -8,8 +8,6 @@ public class Piece : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(string.Format("Piece clicked on {0}",  gameObject.name));
-
         GetComponentInParent<Position>().SelectPiece(this);
     }
 }

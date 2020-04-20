@@ -18,6 +18,7 @@ public enum PieceType
     TowerW,
     TowerB,
     WalkerW,
-    WalkerB
+    WalkerB,
+    Marble
 
 }

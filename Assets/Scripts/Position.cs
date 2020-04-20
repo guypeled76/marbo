@@ -18,14 +18,14 @@ public class Position : MonoBehaviour
     
     public List<Piece> pieces;
 
-    public void SynchronizeState()
+    public void SynchronizeState(Dictionary<string, Position> positions)
     {
         pieces = new List<Piece>(this.GetComponentsInChildren<Piece>());
     }
 
     internal void SelectPiece(Piece piece)
     {
-        Debug.Log(string.Format("Piece with in position clicked on {0}", gameObject.name));
+        GetComponentInParent<Manager>().SelectPiece(this, piece);
     }
 
 }
