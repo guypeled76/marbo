@@ -1,27 +1,16 @@
-﻿using System;
-using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    public Dictionary<string, Position> positions;
+    public Board board;
 
     private void Start()
     {
-        this.SynchronizeState();
+        board = Board.Load(GetComponentsInChildren<Position>());
     }
 
     internal void SelectPiece(Position position, Piece piece)
     {
         Debug.Log(string.Format("Select '{1}' piece in '{0}' position.", position.name, piece.name));
-    }
-
-    public void SynchronizeState()
-    {
-        positions = GetComponentsInChildren<Position>().ToDictionary(p => p.name);
-        positions.Values.ToList().ForEach(p => p.SynchronizeState(positions));
-        Debug.Log(string.Format("Starting manager with {0} position and {1} pieces", positions.Count, positions.SelectMany((position) => position.Value.pieces).Count()));
     }
 }

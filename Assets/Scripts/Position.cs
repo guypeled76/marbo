@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Position : MonoBehaviour
 {
+
     public Position back;
     public Position backLeft;
     public Position backRight;
@@ -15,10 +16,9 @@ public class Position : MonoBehaviour
     public Position forwardLeft;
     public Position forwardRight;
 
-    
     public List<Piece> pieces;
 
-    public void SynchronizeState(Dictionary<string, Position> positions)
+    public void Initialize()
     {
         pieces = new List<Piece>(this.GetComponentsInChildren<Piece>());
     }
