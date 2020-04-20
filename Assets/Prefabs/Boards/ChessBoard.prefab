@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2532261929794006494}
+  - component: {fileID: 9002967204057920482}
   m_Layer: 0
   m_Name: ChessBoard
   m_TagString: Untagged
@@ -31,6 +32,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9002967204057920482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8420220695932613974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad9d7f696183447891998966737bd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &47803080985232156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2055,15 +2068,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 433d3c712fb4e48b8b8a1e97efcd3815, type: 3}
---- !u!4 &137632133522881454 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8061187124640242564, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
-    type: 3}
-  m_PrefabInstance: {fileID: 7942064171077410858}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &244273816261230172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7877979876026801782, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
+    type: 3}
+  m_PrefabInstance: {fileID: 7942064171077410858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1949264349531667821 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8447289252383284551, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
     type: 3}
   m_PrefabInstance: {fileID: 7942064171077410858}
   m_PrefabAsset: {fileID: 0}
@@ -2079,9 +2092,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7942064171077410858}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1949264349531667821 stripped
+--- !u!4 &137632133522881454 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8447289252383284551, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
+  m_CorrespondingSourceObject: {fileID: 8061187124640242564, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
     type: 3}
   m_PrefabInstance: {fileID: 7942064171077410858}
   m_PrefabAsset: {fileID: 0}
