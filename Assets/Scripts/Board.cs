@@ -70,14 +70,31 @@ public class Board
     /// </summary>
     private void Initialize()
     {
-        foreach(Position position in positions.Values)
+        foreach(Position position in this.Positions)
         {
             if(position == null)
             {
                 continue;
             }
 
-            position.Initialize();
+            position.Initialize(this);
         }
+    }
+
+
+    /// <summary>
+    /// Get a position by it's name and allow for default if not found
+    /// </summary>
+    /// <param name="name">The position name.</param>
+    /// <param name="defaultPosition">The default value to return if position cannot be found.</param>
+    /// <returns></returns>
+    public Position GetPositionByName(string name, Position defaultPosition = null)
+    {
+        Position position = null;
+        if (positions.TryGetValue(name, out position))
+        {
+            return position;
+        }
+        return defaultPosition;
     }
 }

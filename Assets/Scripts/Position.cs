@@ -18,9 +18,21 @@ public class Position : MonoBehaviour
 
     public List<Piece> pieces;
 
-    public void Initialize()
+    public void Initialize(Board board)
     {
         pieces = new List<Piece>(this.GetComponentsInChildren<Piece>());
+
+        Location location = Location.Create(this.name);
+
+        // Initialize the relative positions
+        back = board.GetPositionByName(location.back, back);
+        backLeft = board.GetPositionByName(location.backLeft, backLeft);
+        backRight = board.GetPositionByName(location.backRight, backRight);
+        forward = board.GetPositionByName(location.forward, forward);
+        forwardRight = board.GetPositionByName(location.forwardRight, forwardRight);
+        forwardLeft = board.GetPositionByName(location.forwardLeft, forwardLeft);
+        left = board.GetPositionByName(location.left, left);
+        right = board.GetPositionByName(location.right, right);
     }
 
     internal void SelectPiece(Piece piece)
