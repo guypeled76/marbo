@@ -40,7 +40,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012477559032, guid: c83cb2e896e81c94588c0f0e4382b903, type: 3}
       propertyPath: m_Name
-      value: TowerB
+      value: R
       objectReference: {fileID: 0}
     - target: {fileID: 4000011855281052, guid: c83cb2e896e81c94588c0f0e4382b903, type: 3}
       propertyPath: m_LocalPosition.x
@@ -97,7 +97,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000010132166582, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_Name
-      value: WalkerB
+      value: P
       objectReference: {fileID: 0}
     - target: {fileID: 4000014191815074, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_LocalPosition.x
@@ -154,7 +154,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012419391888, guid: bfdb1e4d2c6facd409c83705122b3f93, type: 3}
       propertyPath: m_Name
-      value: HorseW
+      value: n
       objectReference: {fileID: 0}
     - target: {fileID: 4000011343974670, guid: bfdb1e4d2c6facd409c83705122b3f93, type: 3}
       propertyPath: m_LocalPosition.x
@@ -211,7 +211,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000010690425630, guid: f2d67ce5ca982024a84b28363617a10e, type: 3}
       propertyPath: m_Name
-      value: KingB
+      value: K
       objectReference: {fileID: 0}
     - target: {fileID: 4000012941974816, guid: f2d67ce5ca982024a84b28363617a10e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -268,7 +268,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012356099604, guid: 9fc5bae4f505b284e98565f568849bc2, type: 3}
       propertyPath: m_Name
-      value: BishopB
+      value: B
       objectReference: {fileID: 0}
     - target: {fileID: 4000011752979944, guid: 9fc5bae4f505b284e98565f568849bc2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -325,7 +325,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000010132166582, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_Name
-      value: WalkerB
+      value: P
       objectReference: {fileID: 0}
     - target: {fileID: 4000014191815074, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_LocalPosition.x
@@ -382,7 +382,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012346904368, guid: ec66c11b8efba1e4bb3582610040c5d5, type: 3}
       propertyPath: m_Name
-      value: HorseB
+      value: N
       objectReference: {fileID: 0}
     - target: {fileID: 4000010108918088, guid: ec66c11b8efba1e4bb3582610040c5d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -439,7 +439,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011259995040, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_Name
-      value: WalkerW
+      value: p
       objectReference: {fileID: 0}
     - target: {fileID: 4000011850267970, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -496,7 +496,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011427300830, guid: d0efbd2a97e36d848aba3c9b39cc8b7a, type: 3}
       propertyPath: m_Name
-      value: QueenB
+      value: Q
       objectReference: {fileID: 0}
     - target: {fileID: 4000013111069112, guid: d0efbd2a97e36d848aba3c9b39cc8b7a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -553,7 +553,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011259995040, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_Name
-      value: WalkerW
+      value: p
       objectReference: {fileID: 0}
     - target: {fileID: 4000011850267970, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -610,7 +610,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011259995040, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_Name
-      value: WalkerW
+      value: p
       objectReference: {fileID: 0}
     - target: {fileID: 4000011850267970, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -667,7 +667,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011259995040, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_Name
-      value: WalkerW
+      value: p
       objectReference: {fileID: 0}
     - target: {fileID: 4000011850267970, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -724,7 +724,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012419391888, guid: bfdb1e4d2c6facd409c83705122b3f93, type: 3}
       propertyPath: m_Name
-      value: HorseW
+      value: n
       objectReference: {fileID: 0}
     - target: {fileID: 4000011343974670, guid: bfdb1e4d2c6facd409c83705122b3f93, type: 3}
       propertyPath: m_LocalPosition.x
@@ -786,7 +786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000010132166582, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_Name
-      value: WalkerB
+      value: P
       objectReference: {fileID: 0}
     - target: {fileID: 4000014191815074, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_LocalPosition.x
@@ -843,7 +843,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011259995040, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_Name
-      value: WalkerW
+      value: p
       objectReference: {fileID: 0}
     - target: {fileID: 4000011850267970, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -900,7 +900,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012356099604, guid: 9fc5bae4f505b284e98565f568849bc2, type: 3}
       propertyPath: m_Name
-      value: BishopB
+      value: B
       objectReference: {fileID: 0}
     - target: {fileID: 4000011752979944, guid: 9fc5bae4f505b284e98565f568849bc2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -957,7 +957,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000010132166582, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_Name
-      value: WalkerB
+      value: P
       objectReference: {fileID: 0}
     - target: {fileID: 4000014191815074, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1014,7 +1014,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011499048850, guid: c5885eefb3ed18b49b1e1d1608b369f2, type: 3}
       propertyPath: m_Name
-      value: BishopW
+      value: b
       objectReference: {fileID: 0}
     - target: {fileID: 4000011943047976, guid: c5885eefb3ed18b49b1e1d1608b369f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1071,7 +1071,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011499048850, guid: c5885eefb3ed18b49b1e1d1608b369f2, type: 3}
       propertyPath: m_Name
-      value: BishopW
+      value: b
       objectReference: {fileID: 0}
     - target: {fileID: 4000011943047976, guid: c5885eefb3ed18b49b1e1d1608b369f2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1128,7 +1128,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011592813178, guid: 11aecc59b0f845546a438e6c3572b65d, type: 3}
       propertyPath: m_Name
-      value: QueenW
+      value: q
       objectReference: {fileID: 0}
     - target: {fileID: 4000012859148374, guid: 11aecc59b0f845546a438e6c3572b65d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1185,7 +1185,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000010132166582, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_Name
-      value: WalkerB
+      value: P
       objectReference: {fileID: 0}
     - target: {fileID: 4000014191815074, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1242,7 +1242,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000010204267274, guid: aed736449fca3684a86246512f52303f, type: 3}
       propertyPath: m_Name
-      value: TowerW
+      value: r
       objectReference: {fileID: 0}
     - target: {fileID: 4000011263106122, guid: aed736449fca3684a86246512f52303f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1299,7 +1299,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011259995040, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_Name
-      value: WalkerW
+      value: p
       objectReference: {fileID: 0}
     - target: {fileID: 4000011850267970, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1356,7 +1356,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012562189616, guid: c5864383d37ad7a4ebce4ee780f1e277, type: 3}
       propertyPath: m_Name
-      value: KingW
+      value: k
       objectReference: {fileID: 0}
     - target: {fileID: 4000010753499118, guid: c5864383d37ad7a4ebce4ee780f1e277, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1413,7 +1413,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011259995040, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_Name
-      value: WalkerW
+      value: p
       objectReference: {fileID: 0}
     - target: {fileID: 4000011850267970, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1470,7 +1470,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012477559032, guid: c83cb2e896e81c94588c0f0e4382b903, type: 3}
       propertyPath: m_Name
-      value: TowerB
+      value: R
       objectReference: {fileID: 0}
     - target: {fileID: 4000011855281052, guid: c83cb2e896e81c94588c0f0e4382b903, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1527,7 +1527,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000011259995040, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_Name
-      value: WalkerW
+      value: p
       objectReference: {fileID: 0}
     - target: {fileID: 4000011850267970, guid: 4bd76ce6e9fdaf6449b94d5e8337b4ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1584,7 +1584,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000010132166582, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_Name
-      value: WalkerB
+      value: P
       objectReference: {fileID: 0}
     - target: {fileID: 4000014191815074, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1641,7 +1641,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000010204267274, guid: aed736449fca3684a86246512f52303f, type: 3}
       propertyPath: m_Name
-      value: TowerW
+      value: r
       objectReference: {fileID: 0}
     - target: {fileID: 4000011263106122, guid: aed736449fca3684a86246512f52303f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1698,7 +1698,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000010132166582, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_Name
-      value: WalkerB
+      value: P
       objectReference: {fileID: 0}
     - target: {fileID: 4000014191815074, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2262,7 +2262,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000010132166582, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_Name
-      value: WalkerB
+      value: P
       objectReference: {fileID: 0}
     - target: {fileID: 4000014191815074, guid: 3a5bc8d18bb9aa348af55e3d7f0ea735, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2319,7 +2319,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1000012346904368, guid: ec66c11b8efba1e4bb3582610040c5d5, type: 3}
       propertyPath: m_Name
-      value: HorseB
+      value: N
       objectReference: {fileID: 0}
     - target: {fileID: 4000010108918088, guid: ec66c11b8efba1e4bb3582610040c5d5, type: 3}
       propertyPath: m_LocalPosition.x

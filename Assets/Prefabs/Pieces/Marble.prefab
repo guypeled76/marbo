@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1824636660220636426}
   - component: {fileID: -166158848550864193}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Marble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58bd45be4b0443ebbc85c6f49fb9d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 14
+  type: 109
 --- !u!64 &-166158848550864193
 MeshCollider:
   m_ObjectHideFlags: 0
