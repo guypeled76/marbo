@@ -19,11 +19,11 @@ public class Position : MonoBehaviour
     public int row;
     public int column;
 
-    public List<Piece> pieces;
+    public Piece piece;
 
     public void Initialize(Board board)
     {
-        pieces = new List<Piece>(this.GetComponentsInChildren<Piece>());
+        piece = this.GetComponentInChildren<Piece>();
 
         Location location = Location.Create(this.name);
 

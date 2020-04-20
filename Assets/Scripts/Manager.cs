@@ -7,9 +7,13 @@ public class Manager : MonoBehaviour
 {
     private Board board;
 
+    public string boardState;
+
     private void Start()
     {
         board = Board.Load(GetComponentsInChildren<Position>());
+
+        boardState = board.ToString();
     }
 
 

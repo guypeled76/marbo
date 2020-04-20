@@ -1,48 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 
 public class Board
 {
-    /// <summary>
-    /// Holds the board positions index by name
-    /// </summary>
-    private readonly Dictionary<string, Position> positions = new Dictionary<string, Position>();
 
-    public readonly int columns = 0;
-    public readonly int rows = 0;
+    private readonly Dictionary<string, Position> positionsByName = new Dictionary<string, Position>();
+
+
+    private readonly int columns;
+    private readonly int rows;
+    private readonly Position[,] positions;
 
     /// <summary>
     /// Creates an empty board
     /// </summary>
-    public Board() : this(new Dictionary<string, Position>())
+    public Board() : this(new Position[0])
     {
 
     }
 
     /// <summary>
-    /// 
+    /// Creates a board based on the positions.
     /// </summary>
-    /// <param name="positions"></param>
-    private Board(Dictionary<string, Position> positions)
+    /// <param name="positions">The board positions.</param>
+    private Board(Position[] positions)
     {
-        this.positions = positions;
+        // Index the positions by name to allow for position navigation
+        this.positionsByName = positions.ToDictionary(p => p.name);
 
-        // Loop all positions within manager
-        foreach (Position position in this.Positions)
+        // Inizialize all positions and calculate board size
+        foreach (Position position in positions)
         {
-            if (position == null)
-            {
-                continue;
-            }
-
-            // Initialize the current position
             position.Initialize(this);
 
-            // Calculate board width
             rows = Math.Max(rows, position.row);
             columns = Math.Max(columns, position.column);
+        }
+
+        // Create the board position metrix
+        this.positions = new Position[rows, columns];
+
+        // Index positions by location
+        foreach (Position position in positions)
+        {
+            this.positions[position.column - 1, position.row - 1] = position;
         }
     }
 
@@ -55,7 +59,7 @@ public class Board
     /// <returns></returns>
     internal static Board Load(Position[] positions)
     {
-        return new Board(positions.ToDictionary(p => p.name));
+        return new Board(positions);
     }
 
     /// <summary>
@@ -66,7 +70,7 @@ public class Board
     /// <returns></returns>
     public Position GetPositionByName(string name, Position defaultPosition = null)
     {
-        if (positions.TryGetValue(name, out Position position))
+        if (positionsByName.TryGetValue(name, out Position position))
         {
             return position;
         }
@@ -74,25 +78,85 @@ public class Board
     }
 
     /// <summary>
-    /// Gets all the positions on the board
+    /// Generates a string representation of the board state
     /// </summary>
-    public IEnumerable<Position> Positions
+    /// <returns></returns>
+    public override string ToString()
     {
-        get
+        StringBuilder builder = new StringBuilder();
+
+        for (int rowIndex = 0; rowIndex < rows; rowIndex++)
         {
-            return positions.Values;
+            FillRowString(builder, rowIndex);
         }
+
+        return builder.ToString();
+    }
+    
+    /// <summary>
+    /// Fills the string builder with the current row content.
+    /// </summary>
+    /// <param name="builder">The current builder.</param>
+    /// <param name="rowIndex">The current row index with in the board.</param>
+    private void FillRowString(StringBuilder builder, int rowIndex)
+    {
+        if (rowIndex > 0)
+        {
+            builder.Append('/');
+        }
+
+        int emptyCount = 0;
+
+        for (int columnIndex = 0; columnIndex < columns; columnIndex++)
+        {
+            FillColumnString(builder, rowIndex, columnIndex, ref emptyCount);
+        }
+
+        // If we have empty columns at the end of the row
+        FillEmptyColumnString(builder, ref emptyCount);
     }
 
     /// <summary>
-    /// Gets all the pieces on the board
+    /// Fills the string builder with the current column content.
     /// </summary>
-    public IEnumerable<Piece> Pieces
+    /// <param name="builder">The current builder.</param>
+    /// <param name="rowIndex">The current row index with in the board.</param>
+    /// <param name="columnIndex"></param>
+    /// <param name="emptyCount">The amount of empty positions encountered untill now.</param>
+    private void FillColumnString(StringBuilder builder, int rowIndex, int columnIndex, ref int emptyCount)
     {
-        get
+        // Even if we are missing a position we are still working as if we have a rectangle
+        Position position = positions[rowIndex, columnIndex];
+        if (position == null)
         {
-            return this.Positions.SelectMany(p => p.pieces);
+            emptyCount++;
+            return;
         }
+
+        // Get piece at the specific position
+        Piece piece = position.piece;
+        if (piece == null)
+        {
+            emptyCount++;
+            return;
+        }
+
+        FillEmptyColumnString(builder, ref emptyCount);
+
+        builder.Append((char)piece.type);
     }
 
+    /// <summary>
+    /// Adds a number representing the amount of empty columns we encountered untill now and resets the counter.
+    /// </summary>
+    /// <param name="builder">The current builder.</param>
+    /// <param name="emptyCount">The amount of empty positions encountered untill now.</param>
+    private void FillEmptyColumnString(StringBuilder builder, ref int emptyCount)
+    {
+        if (emptyCount > 0)
+        {
+            builder.Append(emptyCount);
+            emptyCount = 0;
+        }
+    }
 }
