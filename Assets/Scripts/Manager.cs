@@ -108,13 +108,13 @@ public class Manager : MonoBehaviour
                 originalMarker = unselectableMarker;
                 break;
             case MarkerType.Remove:
-                originalMarker = unselectableMarker;
+                originalMarker = removeMarker;
                 break;
             case MarkerType.Selected:
-                originalMarker = unselectableMarker;
+                originalMarker = selectedMarker;
                 break;
             case MarkerType.Drop:
-                originalMarker = unselectableMarker;
+                originalMarker = dropMarker;
                 break;
             case MarkerType.None:
             default:
