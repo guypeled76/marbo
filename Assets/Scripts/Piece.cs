@@ -10,4 +10,9 @@ public class Piece : MonoBehaviour
     {
         GetComponentInParent<Position>().OnSelectPiece(this);
     }
+
+    public static bool IsEmpty(Piece piece)
+    {
+        return piece == null || piece.type == PieceType.Empty;
+    }
 }

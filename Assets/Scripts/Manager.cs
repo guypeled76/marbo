@@ -67,7 +67,7 @@ public class Manager : MonoBehaviour
     /// <returns></returns>
     protected virtual bool CanSelect(Position position, Piece piece)
     {
-        return piece != null;
+        return !Piece.IsEmpty(piece);
     }
 
     /// <summary>

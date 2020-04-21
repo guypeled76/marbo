@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public enum PieceType 
 {
+    Empty = 'e',
     BishopW = 'b',
     BishopB = 'B',
     CheckerW = 'c',

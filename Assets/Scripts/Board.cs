@@ -135,7 +135,7 @@ public class Board
 
         // Get piece at the specific position
         Piece piece = position.piece;
-        if (piece == null)
+        if (Piece.IsEmpty(piece))
         {
             emptyCount++;
             return;

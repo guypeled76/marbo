@@ -34,13 +34,13 @@ public class SolitaireManager : Manager
     private void FillSecondarySelection(List<Selection> selections, Position position, Func<Position, Position> navigator)
     {
         Position nextPosition = navigator(position);
-        if(nextPosition == null || nextPosition.piece == null)
+        if(nextPosition == null || Piece.IsEmpty(nextPosition.piece))
         {
             return;
         }
 
         Position dropPosition = navigator(nextPosition);
-        if(dropPosition == null || dropPosition.piece != null)
+        if(dropPosition == null || !Piece.IsEmpty(dropPosition.piece))
         {
             return;
         }
