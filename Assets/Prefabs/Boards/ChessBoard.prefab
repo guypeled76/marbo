@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a407925001d4aebb89a6ecdc326dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedMarker: {fileID: 712395439847314492}
+  unselectableMarker: {fileID: 3925854469886359309}
+  removeMarker: {fileID: 307495211210628238}
+  dropMarker: {fileID: 5501247398706277307}
   boardState: 
 --- !u!1001 &47803080985232156
 PrefabInstance:
@@ -5545,9 +5549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3a170807b7d410d990c9b74843b258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6620110208584901543 stripped
+--- !u!114 &6452312668922932893 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3884559600234447757, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
+  m_CorrespondingSourceObject: {fileID: 4016324004759097015, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
     type: 3}
   m_PrefabInstance: {fileID: 7942064171077410858}
   m_PrefabAsset: {fileID: 0}
@@ -5569,12 +5573,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3a170807b7d410d990c9b74843b258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &6421854916072031549 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3974675493306557719, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
+--- !u!114 &6620110208584901543 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3884559600234447757, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
     type: 3}
   m_PrefabInstance: {fileID: 7942064171077410858}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3a170807b7d410d990c9b74843b258, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &218980124562841232 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7871755637386739386, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
@@ -6031,6 +6041,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3a170807b7d410d990c9b74843b258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3925854469886359309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6362617191297816359, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
+    type: 3}
+  m_PrefabInstance: {fileID: 7942064171077410858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5501247398706277307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2481406516259769233, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
+    type: 3}
+  m_PrefabInstance: {fileID: 7942064171077410858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &712395439847314492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7481902471465939990, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
+    type: 3}
+  m_PrefabInstance: {fileID: 7942064171077410858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &307495211210628238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7670632967634091172, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
+    type: 3}
+  m_PrefabInstance: {fileID: 7942064171077410858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6152630667679909255 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4275439653295842733, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
@@ -6049,18 +6083,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7942064171077410858}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6452312668922932893 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4016324004759097015, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
+--- !u!4 &6421854916072031549 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3974675493306557719, guid: 433d3c712fb4e48b8b8a1e97efcd3815,
     type: 3}
   m_PrefabInstance: {fileID: 7942064171077410858}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db3a170807b7d410d990c9b74843b258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8901301011283178837 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1562792309009339775, guid: 433d3c712fb4e48b8b8a1e97efcd3815,

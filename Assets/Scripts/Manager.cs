@@ -7,13 +7,18 @@ public class Manager : MonoBehaviour
 {
     private Board board;
 
-    private readonly Selection selection;
+    private readonly SelectionContainer selectionContainer;
+
+    public GameObject selectedMarker;
+    public GameObject unselectableMarker;
+    public GameObject removeMarker;
+    public GameObject dropMarker;
 
     public string boardState;
 
     public Manager()
     {
-        selection = new Selection(this);
+        selectionContainer = new SelectionContainer(this);
     }
 
     private void Start()
@@ -29,17 +34,17 @@ public class Manager : MonoBehaviour
     /// </summary>
     /// <param name="position">The position to select.</param>
     /// <param name="piece">The piece that was requested.</param>
-    internal void SelectPosition(Position position, Piece piece)
+    internal void OnSelectPosition(Position position, Piece piece)
     {
         Debug.Log(string.Format("Select '{1}' piece in '{0}' position.", position.name, piece.name));
 
         if(CanSelect(position, piece))
         {
-            selection.Select(position, GetSecondarySelections(position, piece));
+            selectionContainer.Select(new Selection(position, MarkerType.Selected), GetSecondarySelections(position, piece));
         }
         else
         {
-            Debug.Log(string.Format("Cannot select '{1}' piece in '{0}' position.", position.name, piece.name));
+            selectionContainer.Select(new Selection(position, MarkerType.Unselectable));
         }
     }
 
@@ -49,9 +54,9 @@ public class Manager : MonoBehaviour
     /// <param name="position">The primary position.</param>
     /// <param name="piece">The primary piece.</param>
     /// <returns></returns>
-    protected Position[] GetSecondarySelections(Position position, Piece piece)
+    protected virtual Selection[] GetSecondarySelections(Position position, Piece piece)
     {
-        return new Position[0];
+        return new Selection[0];
     }
 
     /// <summary>
@@ -60,7 +65,7 @@ public class Manager : MonoBehaviour
     /// <param name="position">The position that should be selected.</param>
     /// <param name="piece">The piece that is contained in the position.</param>
     /// <returns></returns>
-    protected bool CanSelect(Position position, Piece piece)
+    protected virtual bool CanSelect(Position position, Piece piece)
     {
         return piece != null;
     }
@@ -68,13 +73,13 @@ public class Manager : MonoBehaviour
     /// <summary>
     /// Removes selection indicators from the primary and secondary positions
     /// </summary>
-    /// <param name="primarySelection"></param>
-    /// <param name="secondarySelections"></param>
-    internal void RemoveSelectionIndications(Position primarySelection, Position[] secondarySelections)
+    internal void RemoveSelection(params Selection[] selections)
     {
-        if (primarySelection != null)
+        Debug.Log(string.Format("Remove selection '{0}' position.", selections.Length));
+
+        foreach(Selection selection in selections)
         {
-            Debug.Log(string.Format("Remove selection '{0}' position.", primarySelection.name));
+            selection.position.RemoveMarker();
         }
     }
 
@@ -83,11 +88,47 @@ public class Manager : MonoBehaviour
     /// </summary>
     /// <param name="primarySelection"></param>
     /// <param name="secondarySelections"></param>
-    internal void ApplySelectionIndications(Position primarySelection, Position[] secondarySelections)
+    internal void ApplySelection(params Selection[] selections)
     {
-        if(primarySelection != null)
+        Debug.Log(string.Format("Apply selection '{0}' position.", selections.Length));
+
+        foreach (Selection selection in selections)
         {
-            Debug.Log(string.Format("Apply selection '{0}' position.", primarySelection.name));
+            selection.position.SetMarker(selection.marker, CreateMarker(selection.marker, selection.position.gameObject));
         }
     }
+
+    private GameObject CreateMarker(MarkerType marker, GameObject parent)
+    {
+        GameObject originalMarker = null;
+
+        switch (marker)
+        {
+            case MarkerType.Unselectable:
+                originalMarker = unselectableMarker;
+                break;
+            case MarkerType.Remove:
+                originalMarker = unselectableMarker;
+                break;
+            case MarkerType.Selected:
+                originalMarker = unselectableMarker;
+                break;
+            case MarkerType.Drop:
+                originalMarker = unselectableMarker;
+                break;
+            case MarkerType.None:
+            default:
+                break;
+        }
+
+        if(originalMarker == null)
+        {
+            return null;
+        }
+
+        GameObject instantiatedMarker = GameObject.Instantiate(originalMarker, parent.transform.position, parent.transform.rotation, parent.transform);
+
+        return instantiatedMarker;
+    }
 }
+

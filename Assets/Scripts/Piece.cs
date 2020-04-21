@@ -8,6 +8,6 @@ public class Piece : MonoBehaviour
 
     private void OnMouseDown()
     {
-        GetComponentInParent<Position>().SelectPiece(this);
+        GetComponentInParent<Position>().OnSelectPiece(this);
     }
 }

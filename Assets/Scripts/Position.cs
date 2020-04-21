@@ -21,6 +21,9 @@ public class Position : MonoBehaviour
 
     public Piece piece;
 
+    public GameObject marker;
+    public MarkerType markerType;
+
     public void Initialize(Board board)
     {
         piece = this.GetComponentInChildren<Piece>();
@@ -42,9 +45,23 @@ public class Position : MonoBehaviour
         
     }
 
-    internal void SelectPiece(Piece piece)
+    internal void OnSelectPiece(Piece piece)
     {
-        GetComponentInParent<Manager>().SelectPosition(this, piece);
+        GetComponentInParent<Manager>().OnSelectPosition(this, piece);
     }
 
+    internal void RemoveMarker()
+    {
+        markerType = MarkerType.None;
+        if(marker != null)
+        {
+            GameObject.Destroy(marker);
+        }
+    }
+
+    internal void SetMarker(MarkerType markerType, GameObject marker)
+    {
+        this.marker = marker;
+        this.markerType = markerType;
+    }
 }

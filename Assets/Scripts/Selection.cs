@@ -1,38 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Selection
 {
-    private Manager manager;
 
-    private Position primarySelection;
+    internal static readonly Selection[] EmptyArray = new Selection[0];
 
-    private  Position[] secondarySelections;
+    public readonly Position position;
+    public readonly MarkerType marker;
 
-    public Selection(Manager manager)
+    public Selection(Position position, MarkerType marker)
     {
-        this.manager = manager;
-    }
-
-    internal void Clear()
-    {
-        manager.RemoveSelectionIndications(primarySelection, secondarySelections);
-
-        primarySelection = null;
-        secondarySelections = null;
-    }
-
-    internal void Apply()
-    {
-        manager.ApplySelectionIndications(primarySelection, secondarySelections);
-    }
-
-    internal void Select(Position primaryPosition, Position[] secondaryPositions)
-    {
-        this.Clear();
-        primarySelection = primaryPosition;
-        secondarySelections = secondaryPositions;
-        this.Apply();
+        this.position = position;
+        this.marker = marker;
     }
 }

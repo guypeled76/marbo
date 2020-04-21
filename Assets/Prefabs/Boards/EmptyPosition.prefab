@@ -51,4 +51,6 @@ MonoBehaviour:
   forward: {fileID: 0}
   forwardLeft: {fileID: 0}
   forwardRight: {fileID: 0}
-  pieces: []
+  row: 0
+  column: 0
+  piece: {fileID: 0}
