@@ -7,11 +7,24 @@ using UnityEngine;
 public class Board
 {
 
+    /// <summary>
+    /// Hold position by position name
+    /// </summary>
     private readonly Dictionary<string, Position> positionsByName = new Dictionary<string, Position>();
 
-
+    /// <summary>
+    /// The board column count
+    /// </summary>
     private readonly int columns;
+
+    /// <summary>
+    /// The boards row count
+    /// </summary>
     private readonly int rows;
+
+    /// <summary>
+    /// Holds positions by location
+    /// </summary>
     private readonly Position[,] positions;
 
     /// <summary>
@@ -138,12 +151,31 @@ public class Board
         switch (action.type)
         {
             case ActionType.Remove:
-                action.source.RemovePiece();
+                ApplyRemoveAction(action.source);
                 break;
             case ActionType.Move:
-                Position.MovePiece(action.source, action.target);
+                ApplyMoveAction(action.source, action.target);
                 break;
         }
+    }
+
+    /// <summary>
+    /// Apply the remove action at the specific position
+    /// </summary>
+    /// <param name="position">The position to remove piece from.</param>
+    protected virtual void ApplyRemoveAction(Position position)
+    {
+        position.RemovePiece();
+    }
+
+    /// <summary>
+    /// Apply move action from source to target.
+    /// </summary>
+    /// <param name="source">The source position of the move.</param>
+    /// <param name="target">The target position of the move.</param>
+    protected virtual void ApplyMoveAction(Position source, Position target)
+    {
+        Position.MovePiece(source, target);
     }
 
     /// <summary>
@@ -197,8 +229,6 @@ public class Board
     /// <param name="emptyCount">The amount of empty positions encountered untill now.</param>
     private void FillColumnString(StringBuilder builder, int rowIndex, int columnIndex, ref int emptyCount)
     {
-
-        Debug.Log(string.Format("Printing r{0}Xc{1} of board.", rowIndex, columnIndex));
 
         // Even if we are missing a position we are still working as if we have a rectangle
         Position position = positions[rowIndex, columnIndex];
