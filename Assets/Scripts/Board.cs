@@ -34,19 +34,29 @@ public class Board
         // Inizialize all positions and calculate board size
         foreach (Position position in positions)
         {
+
+            Debug.Log(string.Format("Initializing '{0}' board position.", position.name));
+
             position.Initialize(this);
 
             rows = Math.Max(rows, position.row);
             columns = Math.Max(columns, position.column);
         }
 
+        
+        Debug.Log(string.Format("Creating {0}X{1} board.", rows, columns));
+
         // Create the board position metrix
         this.positions = new Position[rows, columns];
+
+        
 
         // Index positions by location
         foreach (Position position in positions)
         {
-            this.positions[position.column - 1, position.row - 1] = position;
+            Debug.Log(string.Format("Setting '{0}' position at {1},{2}", position.name, position.row, position.column));
+
+            this.positions[position.row - 1, position.column - 1] = position;
         }
     }
 
