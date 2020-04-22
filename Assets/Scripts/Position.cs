@@ -77,7 +77,7 @@ public class Position : MonoBehaviour
 
         if (distroy)
         {
-            GameObject.Destroy(piece);
+            GameObject.Destroy(piece.gameObject);
         }
 
         piece = null;
@@ -98,9 +98,9 @@ public class Position : MonoBehaviour
             return;
         }
         target.RemovePiece(true);
-        piece.transform.parent = target.transform;
+        piece.transform.SetParent(target.transform);
         target.piece = piece;
-        source.RemovePiece(false);
+        source.RemovePiece(true);
 
 
     }
