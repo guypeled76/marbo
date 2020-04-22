@@ -35,8 +35,6 @@ public class Board
         foreach (Position position in positions)
         {
 
-            Debug.Log(string.Format("Initializing '{0}' board position.", position.name));
-
             position.Initialize(this);
 
             rows = Math.Max(rows, position.row);
@@ -54,8 +52,6 @@ public class Board
         // Index positions by location
         foreach (Position position in positions)
         {
-            Debug.Log(string.Format("Setting '{0}' position at {1},{2}", position.name, position.row, position.column));
-
             this.positions[position.row - 1, position.column - 1] = position;
         }
     }
@@ -105,11 +101,7 @@ public class Board
     /// <returns></returns>
     public virtual Position ApplyMove(Position position, Move move)
     {
-
         ApplyActions(move.actions);
-
-
-
         return move.target;
     }
 
@@ -205,6 +197,9 @@ public class Board
     /// <param name="emptyCount">The amount of empty positions encountered untill now.</param>
     private void FillColumnString(StringBuilder builder, int rowIndex, int columnIndex, ref int emptyCount)
     {
+
+        Debug.Log(string.Format("Printing r{0}Xc{1} of board.", rowIndex, columnIndex));
+
         // Even if we are missing a position we are still working as if we have a rectangle
         Position position = positions[rowIndex, columnIndex];
         if (position == null)
@@ -223,7 +218,16 @@ public class Board
 
         FillEmptyColumnString(builder, ref emptyCount);
 
-        builder.Append((char)piece.type);
+        // Make sure type is defined
+        if (Enum.IsDefined(typeof(PieceType), piece.type))
+        {
+            builder.Append((char)piece.type);
+        }
+        else
+        {
+            Debug.LogError(string.Format("Position '{0}' has an undifined piece type in '{1}' piece.", position.name, piece.name));
+            builder.Append('?');
+        }
     }
 
     /// <summary>

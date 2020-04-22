@@ -11,10 +11,14 @@ public class ChessBoard : Board
 
     public ChessBoard(Position[] positions) : base(positions)
     {
-        Debug.Log("Initializing chess " + this.ToString());
-        game = new ChessDotNet.ChessGame(this.ToString() + " w KQkq - 0 1");
+        Debug.Log(string.Format("Initializing chess {0}",this.ToString()));
+        game = new ChessDotNet.ChessGame(this.ToString());
     }
 
+    public override string ToString()
+    {
+        return base.ToString() + " w KQkq - 0 1";
+    }
 
     public override bool CanMove(Position position, Piece piece)
     {
