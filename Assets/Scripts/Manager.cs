@@ -172,7 +172,7 @@ public class Manager : MonoBehaviour
             return null;
         }
 
-        return GameObject.Instantiate(originalMarker, parent.transform.position, parent.transform.rotation, parent.transform);
+        return Utils.CloneObject(originalMarker, parent);
     }
 }
 

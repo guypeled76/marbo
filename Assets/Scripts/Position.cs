@@ -68,21 +68,22 @@ public class Position : MonoBehaviour
     /// <summary>
     /// Removes the position piece
     /// </summary>
-    internal void RemovePiece(bool distroy = true)
+    internal void RemovePiece()
     {
         if(piece == null)
         {
             return;
         }
 
-        if (distroy)
-        {
-            GameObject.Destroy(piece.gameObject);
-        }
-
+        GameObject.Destroy(piece.gameObject);
         piece = null;
     }
 
+    /// <summary>
+    /// Move piece from one position to another
+    /// </summary>
+    /// <param name="source">The source position.</param>
+    /// <param name="target">The target position.</param>
     internal static void MovePiece(Position source, Position target)
     {
         if(source == null || target == null)
@@ -97,11 +98,9 @@ public class Position : MonoBehaviour
             Debug.Log("Source position shoule have a piece a move piece action.");
             return;
         }
-        target.RemovePiece(true);
-        piece.transform.SetParent(target.transform);
-        target.piece = piece;
-        source.RemovePiece(true);
 
-
+        target.RemovePiece();
+        target.piece = Utils.CloneComponent(source.piece, target);
+        source.RemovePiece();
     }
 }
