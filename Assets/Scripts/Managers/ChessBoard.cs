@@ -8,6 +8,9 @@ using UnityEngine;
 /// </summary>
 public class ChessBoard : Board
 {
+    /// <summary>
+    /// The ChessDotNet game object which implements the chess "brain"
+    /// </summary>
     private ChessDotNet.ChessGame game;
 
     /// <summary>
@@ -45,6 +48,7 @@ public class ChessBoard : Board
         ChessMove chessMove = move as ChessMove;
         if(chessMove == null)
         {
+            // Moving requires a valid chess mode that integrates to chessdotnet
             return position;
         }
 
@@ -67,7 +71,6 @@ public class ChessBoard : Board
         // Loop all posible moves
         foreach (ChessDotNet.Move move in game.GetValidMoves(ConvertPosition(position)))
         {
-
             FillValidMove(moves, position, move);
         }
 

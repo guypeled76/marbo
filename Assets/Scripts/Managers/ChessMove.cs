@@ -1,10 +1,14 @@
 ﻿using System;
 
-public class ChessMove : Move
+internal class ChessMove : Move
 {
+    /// <summary>
+    /// The validated ChessDotNet move which if this marbo move
+    /// will be applied should be applied on the ChessDotNet game object.
+    /// </summary>
     public readonly ChessDotNet.Move move;
 
-    public ChessMove(ChessDotNet.Move move, Position target, Action[] actions, params Selection[] selections) : base(target, actions, selections)
+    internal ChessMove(ChessDotNet.Move move, Position target, Action[] actions, params Selection[] selections) : base(target, actions, selections)
     {
         this.move = move;
     }
