@@ -26,7 +26,7 @@ public class Board
     /// Creates a board based on the positions.
     /// </summary>
     /// <param name="positions">The board positions.</param>
-    private Board(Position[] positions)
+    public Board(Position[] positions)
     {
         // Index the positions by name to allow for position navigation
         this.positionsByName = positions.ToDictionary(p => p.name);
@@ -50,18 +50,6 @@ public class Board
         }
     }
 
-
-
-    /// <summary>
-    /// Load a board given all it's positions
-    /// </summary>
-    /// <param name="positions">The board's positions.</param>
-    /// <returns></returns>
-    internal static Board Load(Position[] positions)
-    {
-        return new Board(positions);
-    }
-
     /// <summary>
     /// Get a position by it's name and allow for default if not found
     /// </summary>
@@ -78,9 +66,32 @@ public class Board
     }
 
     /// <summary>
-    /// Generates a string representation of the board state
+    /// Get the posible moves
+    /// </summary>
+    /// <param name="position">The primary position.</param>
+    /// <param name="piece">The primary piece.</param>
+    /// <returns></returns>
+    public virtual Move[] GetPossibleMoves(Position position, Piece piece)
+    {
+        return Move.EmptyArray;
+    }
+
+    /// <summary>
+    /// Check if the current piece can move.
+    /// </summary>
+    /// <param name="position">The position that the piece is in.</param>
+    /// <param name="piece">The piece that is move is checked for.</param>
+    /// <returns></returns>
+    public virtual bool CanMove(Position position, Piece piece)
+    {
+        return (GetPossibleMoves(position, piece)?.Length ?? 0) > 0;
+    }
+
+    /// <summary>
+    /// Generates fen string noration (Forsyth–Edwards Notation)
     /// </summary>
     /// <returns></returns>
+    /// <seealso cref="https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation"/>
     public override string ToString()
     {
         StringBuilder builder = new StringBuilder();

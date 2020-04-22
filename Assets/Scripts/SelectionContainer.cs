@@ -10,26 +10,45 @@ public class SelectionContainer
     private readonly Manager manager;
 
     /// <summary>
-    /// The current selected positions
+    /// The current selected position
     /// </summary>
-    private Selection[] selections = Selection.EmptyArray;
+    private Selection selection;
+
+    /// <summary>
+    /// The current available moves
+    /// </summary>
+    private Move[] moves = Move.EmptyArray;
+
+    /// <summary>
+    /// The current selected move
+    /// </summary>
+    private int move;
+
 
     public SelectionContainer(Manager manager)
     {
         this.manager = manager;
     }
 
+    /// <summary>
+    /// Clear current selection state
+    /// </summary>
+    private void Clear()
+    {
+        // Remove selection before clearing
+        this.Remove();
+
+        // Clear state
+        selection = null;
+        moves = Move.EmptyArray;
+    }
 
     /// <summary>
     /// Unselect current selected positions
     /// </summary>
     internal void Remove()
     {
-        manager.RemoveSelection(selections);
-
-        // Clear the selections
-        selections = Selection.EmptyArray;
-    
+        manager.RemoveSelection(this.Selections);
     }
 
     /// <summary>
@@ -37,29 +56,43 @@ public class SelectionContainer
     /// </summary>
     internal void Apply()
     {
-        manager.ApplySelection(selections);
+        manager.ApplySelection(this.Selections);
     }
 
     /// <summary>
     /// Change the current selection
     /// </summary>
-    /// <param name="primarySelection">The primary selected position./param>
+    /// <param name="selection">The selected position./param>
     /// <param name="secondarySelections">The secondary selected positions.</param>
-    internal void Select(Selection primarySelection, params Selection[] secondarySelections)
+    internal void Select(Selection selection, params Move[] moves)
     {
-        this.Remove();
-
-        List<Selection> selectionList = new List<Selection>();
-        if(primarySelection != null)
-        {
-            selectionList.Add(primarySelection);
-        }
-        if (secondarySelections != null)
-        {
-            selectionList.AddRange(secondarySelections);
-        }
-        selections = selectionList.ToArray();
-
+        this.Clear();
+        this.selection = selection;
+        this.moves = moves;
+        this.move = 0;
         this.Apply();
+    }
+
+
+    /// <summary>
+    /// The current selections
+    /// </summary>
+    public Selection[] Selections
+    {
+        get
+        {
+            List<Selection> selections = new List<Selection>();
+
+            if(selection != null)
+            {
+                selections.Add(selection);
+            }
+
+            if(moves != null && move > 0 && move < moves.Length)
+            {
+
+            }
+            return selections.ToArray();
+        }
     }
 }

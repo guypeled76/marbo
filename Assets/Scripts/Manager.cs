@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    private Board board;
+    /// <summary>
+    /// Holds the current board state.
+    /// </summary>
+    protected Board board;
 
     private readonly SelectionContainer selectionContainer;
 
@@ -14,8 +17,6 @@ public class Manager : MonoBehaviour
     public GameObject removeMarker;
     public GameObject dropMarker;
 
-    public string boardState;
-
     public Manager()
     {
         selectionContainer = new SelectionContainer(this);
@@ -23,9 +24,28 @@ public class Manager : MonoBehaviour
 
     private void Start()
     {
-        board = Board.Load(GetComponentsInChildren<Position>());
+        // Create the game board
+        board = CreateBoard(GetComponentsInChildren<Position>());
 
-        boardState = board.ToString();
+        OnManagerInitialzed();
+    }
+
+    /// <summary>
+    /// Used to create the current board
+    /// </summary>
+    /// <param name="positions">The board positions</param>
+    /// <returns></returns>
+    protected virtual Board CreateBoard(Position[] positions)
+    {
+        return new Board(positions);
+    }
+
+    /// <summary>
+    /// Allows game implementations to initialize game specific manager stuff
+    /// </summary>
+    protected virtual void OnManagerInitialzed()
+    {
+        
     }
 
 
@@ -38,36 +58,14 @@ public class Manager : MonoBehaviour
     {
         Debug.Log(string.Format("Select '{1}' piece in '{0}' position.", position.name, piece.name));
 
-        if(CanSelect(position, piece))
+        if(board.CanMove(position, piece))
         {
-            selectionContainer.Select(new Selection(position, MarkerType.Selected), GetSecondarySelections(position, piece));
+            selectionContainer.Select(new Selection(position, MarkerType.Selected), board.GetPossibleMoves(position, piece));
         }
         else
         {
             selectionContainer.Select(new Selection(position, MarkerType.Unselectable));
         }
-    }
-
-    /// <summary>
-    /// Get secondary selections which allows to implement board movement posiblities.
-    /// </summary>
-    /// <param name="position">The primary position.</param>
-    /// <param name="piece">The primary piece.</param>
-    /// <returns></returns>
-    protected virtual Selection[] GetSecondarySelections(Position position, Piece piece)
-    {
-        return new Selection[0];
-    }
-
-    /// <summary>
-    /// Allow manager to define which position are selectables
-    /// </summary>
-    /// <param name="position">The position that should be selected.</param>
-    /// <param name="piece">The piece that is contained in the position.</param>
-    /// <returns></returns>
-    protected virtual bool CanSelect(Position position, Piece piece)
-    {
-        return !Piece.IsEmpty(piece);
     }
 
     /// <summary>
@@ -98,11 +96,17 @@ public class Manager : MonoBehaviour
         }
     }
 
-    private GameObject CreateMarker(MarkerType marker, GameObject parent)
+    /// <summary>
+    /// Creates a marker instance based on marker type and the target game object 
+    /// </summary>
+    /// <param name="markerType">The marker type to create.</param>
+    /// <param name="parent">The parent of the new marker.</param>
+    /// <returns></returns>
+    private GameObject CreateMarker(MarkerType markerType, GameObject parent)
     {
         GameObject originalMarker = null;
 
-        switch (marker)
+        switch (markerType)
         {
             case MarkerType.Unselectable:
                 originalMarker = unselectableMarker;
@@ -126,9 +130,7 @@ public class Manager : MonoBehaviour
             return null;
         }
 
-        GameObject instantiatedMarker = GameObject.Instantiate(originalMarker, parent.transform.position, parent.transform.rotation, parent.transform);
-
-        return instantiatedMarker;
+        return GameObject.Instantiate(originalMarker, parent.transform.position, parent.transform.rotation, parent.transform);
     }
 }
 
