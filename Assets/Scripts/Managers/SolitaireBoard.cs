@@ -7,34 +7,46 @@ public class SolitaireBoard : Board
     {
     }
 
-    public override bool CanMove(Position position, Piece piece)
-    {
-        List<Move> moves = new List<Move>();
-        FillSecondarySelections(moves, position);
-        return moves.Count > 0;
-    }
-
+    /// <summary>
+    /// Get possible moves for current piece
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="piece"></param>
+    /// <returns></returns>
     public override Move[] GetPossibleMoves(Position position, Piece piece)
     {
         List<Move> moves = new List<Move>();
-        FillSecondarySelections(moves, position);
+        FillPossibleMoves(moves, position, piece);
         return moves.ToArray();
     }
 
-    private void FillSecondarySelections(List<Move> moves, Position position)
+    /// <summary>
+    /// Add possible moves from current position with the givven piece
+    /// </summary>
+    /// <param name="moves"></param>
+    /// <param name="position"></param>
+    /// <param name="piece"></param>
+    private void FillPossibleMoves(List<Move> moves, Position position, Piece piece)
     {
-        if(position == null)
+        // validate arguments
+        if(position == null || Piece.IsEmpty(piece))
         {
             return;
         }
 
-        FillSecondarySelection(moves, position, (p) => p.right);
-        FillSecondarySelection(moves, position, (p) => p.left);
-        FillSecondarySelection(moves, position, (p) => p.back);
-        FillSecondarySelection(moves, position, (p) => p.forward);
+        FillPossibleMove(moves, position, (p) => p.right);
+        FillPossibleMove(moves, position, (p) => p.left);
+        FillPossibleMove(moves, position, (p) => p.back);
+        FillPossibleMove(moves, position, (p) => p.forward);
     }
 
-    private void FillSecondarySelection(List<Move> moves, Position position, Func<Position, Position> navigator)
+    /// <summary>
+    /// Gets the current move based on the navigator
+    /// </summary>
+    /// <param name="moves">The existing collected moves.</param>
+    /// <param name="position">The current position.</param>
+    /// <param name="navigator">The current navigator that defines the move direction.</param>
+    private void FillPossibleMove(List<Move> moves, Position position, Func<Position, Position> navigator)
     {
         Position nextPosition = navigator(position);
         if(nextPosition == null || Piece.IsEmpty(nextPosition.piece))
@@ -48,6 +60,6 @@ public class SolitaireBoard : Board
             return;
         }
 
-        moves.Add(new Move(dropPosition,  new Selection(nextPosition, MarkerType.Remove), new Selection(dropPosition, MarkerType.Drop)));
+        moves.Add(new Move(dropPosition, new Selection(dropPosition, MarkerType.Drop)));
     }
 }

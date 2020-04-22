@@ -88,9 +88,9 @@ public class SelectionContainer
                 selections.Add(selection);
             }
 
-            if(moves != null && move > 0 && move < moves.Length)
+            if(moves != null && move > -1 && move < moves.Length)
             {
-
+                selections.AddRange(moves[move].selections);
             }
             return selections.ToArray();
         }
