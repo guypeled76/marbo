@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// Provides support for managing a board game
+/// </summary>
 public class Manager : MonoBehaviour
 {
     /// <summary>
-    /// Holds the current board state.
+    /// The board implementation instance.
     /// </summary>
     protected Board board;
 
-    private readonly SelectionContainer selectionContainer;
+    /// <summary>
+    /// The interaction manager
+    /// </summary>
+    private readonly Interactions interactions;
 
     public GameObject selectedMarker;
     public GameObject unselectableMarker;
@@ -19,7 +25,7 @@ public class Manager : MonoBehaviour
 
     public Manager()
     {
-        selectionContainer = new SelectionContainer(this);
+        interactions = new Interactions(this);
     }
 
     private void Start()
@@ -60,11 +66,11 @@ public class Manager : MonoBehaviour
 
         if(board.CanMove(position, piece))
         {
-            selectionContainer.Select(new Selection(position, MarkerType.Selected), board.GetPossibleMoves(position, piece));
+            interactions.Select(new Selection(position, MarkerType.Selected), board.GetPossibleMoves(position, piece));
         }
         else
         {
-            selectionContainer.Select(new Selection(position, MarkerType.Unselectable));
+            interactions.Select(new Selection(position, MarkerType.Unselectable));
         }
     }
 

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Provides support for managing board selection markers
+/// Provides support for managing board interactions
 /// </summary>
-public class SelectionContainer
+public class Interactions
 {
     private readonly Manager manager;
 
@@ -25,7 +25,7 @@ public class SelectionContainer
     private int move;
 
 
-    public SelectionContainer(Manager manager)
+    public Interactions(Manager manager)
     {
         this.manager = manager;
     }
@@ -83,11 +83,13 @@ public class SelectionContainer
         {
             List<Selection> selections = new List<Selection>();
 
+            // If there is a selection
             if(selection != null)
             {
                 selections.Add(selection);
             }
 
+            // If there is a valid move
             if(moves != null && move > -1 && move < moves.Length)
             {
                 selections.AddRange(moves[move].selections);
