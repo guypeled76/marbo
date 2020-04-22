@@ -9,11 +9,5 @@ public class ChessManager : Manager
     {
         return new ChessBoard(positions);
     }
-
-    protected override void OnManagerInitialzed()
-    {
-        
-    }
-
     
 }

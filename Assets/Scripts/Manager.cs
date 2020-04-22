@@ -32,8 +32,34 @@ public class Manager : MonoBehaviour
     {
         // Create the game board
         board = CreateBoard(GetComponentsInChildren<Position>());
+    }
 
-        OnManagerInitialzed();
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            interactions.DoNext();
+        }
+        else if(Input.GetKeyDown(KeyCode.Space))
+        {
+            interactions.DoMove();
+        }
+        else if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            interactions.DoMoveSelection(p=>p.forward);
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            interactions.DoMoveSelection(p => p.back);
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            interactions.DoMoveSelection(p => p.left);
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            interactions.DoMoveSelection(p => p.right);
+        }
     }
 
     /// <summary>
@@ -47,13 +73,13 @@ public class Manager : MonoBehaviour
     }
 
     /// <summary>
-    /// Allows game implementations to initialize game specific manager stuff
+    /// Select a position a primary selection.
     /// </summary>
-    protected virtual void OnManagerInitialzed()
+    /// <param name="position">The position to select.</param>
+    internal void OnSelectPosition(Position position)
     {
-        
+        OnSelectPosition(position, position?.piece);
     }
-
 
     /// <summary>
     /// Select a position a primary selection.
@@ -62,8 +88,6 @@ public class Manager : MonoBehaviour
     /// <param name="piece">The piece that was requested.</param>
     internal void OnSelectPosition(Position position, Piece piece)
     {
-        Debug.Log(string.Format("Select '{1}' piece in '{0}' position.", position.name, piece.name));
-
         if(board.CanMove(position, piece))
         {
             interactions.Select(new Selection(position, MarkerType.Selected), board.GetPossibleMoves(position, piece));
@@ -79,8 +103,6 @@ public class Manager : MonoBehaviour
     /// </summary>
     internal void RemoveSelection(params Selection[] selections)
     {
-        Debug.Log(string.Format("Remove selection '{0}' position.", selections.Length));
-
         foreach(Selection selection in selections)
         {
             selection.position.RemoveMarker();
@@ -94,12 +116,20 @@ public class Manager : MonoBehaviour
     /// <param name="secondarySelections"></param>
     internal void ApplySelection(params Selection[] selections)
     {
-        Debug.Log(string.Format("Apply selection '{0}' position.", selections.Length));
-
         foreach (Selection selection in selections)
         {
             selection.position.SetMarker(selection.marker, CreateMarker(selection.marker, selection.position.gameObject));
         }
+    }
+
+    /// <summary>
+    /// Apply the move
+    /// </summary>
+    /// <param name="source">The source position.</param>
+    /// <param name="target">The move to apply.</param>
+    internal void ApplyMove(Position source, Move move)
+    {
+        this.OnSelectPosition(board.ApplyMove(source, move));
     }
 
     /// <summary>

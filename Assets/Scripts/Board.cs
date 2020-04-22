@@ -88,6 +88,17 @@ public class Board
     }
 
     /// <summary>
+    /// Applies the move
+    /// </summary>
+    /// <param name="position">The position to move.</param>
+    /// <param name="move">The move data.</param>
+    /// <returns></returns>
+    public virtual Position ApplyMove(Position position, Move move)
+    {
+        return move.target;
+    }
+
+    /// <summary>
     /// Generates fen string noration (Forsyth–Edwards Notation)
     /// </summary>
     /// <returns></returns>
@@ -103,7 +114,9 @@ public class Board
 
         return builder.ToString();
     }
+
     
+
     /// <summary>
     /// Fills the string builder with the current row content.
     /// </summary>

@@ -44,12 +44,72 @@ public class Interactions
     }
 
     /// <summary>
+    /// Executes a move command
+    /// </summary>
+    public void DoMove()
+    {
+        if (this.HasValidMove && this.HasValidSelection)
+        {
+            manager.ApplyMove(this.selection.position, this.CurrenMove);
+        }
+    }
+
+    /// <summary>
+    /// Moves the current selection using the navigator
+    /// </summary>
+    /// <param name="navigator"></param>
+    internal void DoMoveSelection(Func<Position,Position> navigator)
+    {
+        if(selection == null)
+        {
+            return;
+        }
+
+        Position nextPosition = navigator(selection.position);
+        if(nextPosition == null)
+        {
+            return;
+        }
+
+        manager.OnSelectPosition(nextPosition);
+    }
+
+    /// <summary>
+    /// Executes a next command
+    /// </summary>
+    public void DoNext()
+    {
+        // Move to next move option
+        move++;
+
+        // Return to first if excedded amount of moves
+        if (!this.HasValidMove)
+        {
+            move = 0;
+        }
+
+        // Update the current selections
+        this.Update();
+    }
+
+    /// <summary>
     /// Unselect current selected positions
     /// </summary>
     internal void Remove()
     {
         manager.RemoveSelection(this.Selections);
     }
+
+    /// <summary>
+    /// Reselects the positions
+    /// </summary>
+    internal void Update()
+    {
+        this.Remove();
+        this.Apply();
+    }
+
+    
 
     /// <summary>
     /// Applay current selected positions
@@ -90,11 +150,52 @@ public class Interactions
             }
 
             // If there is a valid move
-            if(moves != null && move > -1 && move < moves.Length)
+            if(this.HasValidMove)
             {
-                selections.AddRange(moves[move].selections);
+                selections.AddRange(this.CurrenMove.selections);
             }
             return selections.ToArray();
         }
     }
+
+    /// <summary>
+    /// A flag indicating if there is a valid move
+    /// </summary>
+    /// <returns></returns>
+    private bool HasValidMove
+    {
+        get
+        {
+            return this.CurrenMove != null;
+        }
+    }
+
+    /// <summary>
+    /// Get current move
+    /// </summary>
+    private Move CurrenMove
+    {
+        get
+        {
+            if(moves != null && move > -1 && move < moves.Length)
+            {
+                return moves[move];
+            }
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Indicates if there is a valid selection
+    /// </summary>
+    private bool HasValidSelection
+    {
+        get
+        {
+            return selection != null;
+        }
+    }
+
+
 }
+
