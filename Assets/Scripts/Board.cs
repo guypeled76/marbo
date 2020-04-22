@@ -28,9 +28,19 @@ public class Board
     private readonly Position[,] positions;
 
     /// <summary>
+    /// The current board players definition
+    /// </summary>
+    private readonly Player[] players;
+
+    /// <summary>
+    /// The current player
+    /// </summary>
+    private int player = 0;
+
+    /// <summary>
     /// Creates an empty board
     /// </summary>
-    public Board() : this(new Position[0])
+    public Board() : this(new Position[0], Player.SinglePlayerArray)
     {
 
     }
@@ -39,8 +49,11 @@ public class Board
     /// Creates a board based on the positions.
     /// </summary>
     /// <param name="positions">The board positions.</param>
-    public Board(Position[] positions)
+    /// <param name="players">The board player definitions.</param>
+    public Board(Position[] positions, Player[] players)
     {
+        this.players = players;
+
         // Index the positions by name to allow for position navigation
         this.positionsByName = positions.ToDictionary(p => p.name);
 
@@ -179,6 +192,52 @@ public class Board
     }
 
     /// <summary>
+    /// The current player that needs to make a move
+    /// </summary>
+    public Player CurrentPlayer
+    {
+        get
+        {
+            if(player > -1 && player < players.Length)
+            {
+                return players[player];
+            }
+
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Switch current player
+    /// </summary>
+    protected virtual Position SwitchPlayer(Position lastPosition)
+    {
+        // Get current player before the seitch
+        Player current = this.CurrentPlayer;
+        if(current != null)
+        {
+            current.last = lastPosition;
+        }
+
+        // Switch the current player
+        player++;
+        if(player >= players.Length)
+        {
+            player = 0;
+        }
+
+        // Get the new current player
+        current = this.CurrentPlayer;
+        if (current != null && current.last != null)
+        {
+            return current.last;
+        }
+
+
+        return lastPosition;
+    }
+
+    /// <summary>
     /// Generates fen string noration (Forsyth–Edwards Notation)
     /// </summary>
     /// <returns></returns>
@@ -187,10 +246,16 @@ public class Board
     {
         StringBuilder builder = new StringBuilder();
 
+        // Loop all rows and add them to the FEN builder
         for (int rowIndex = 0; rowIndex < rows; rowIndex++)
         {
             FillRowString(builder, rowIndex);
         }
+
+        // Add player turn information
+        builder.Append(' ');
+        builder.Append( this.CurrentPlayer?.key ?? 'p');
+        
 
         return builder.ToString();
     }

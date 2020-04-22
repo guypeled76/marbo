@@ -17,14 +17,14 @@ public class ChessBoard : Board
     /// Create a chess board board managed by ChessDotNet
     /// </summary>
     /// <param name="positions"></param>
-    public ChessBoard(Position[] positions) : base(positions)
+    public ChessBoard(Position[] positions) : base(positions, Player.BlackWhiteArray)
     {
         game = new ChessDotNet.ChessGame(this.ToString());
     }
 
     public override string ToString()
     {
-        return base.ToString() + " w KQkq - 0 1";
+        return base.ToString() + " KQkq - 0 1";
     }
 
     public override bool CanMove(Position position, Piece piece)
@@ -52,9 +52,11 @@ public class ChessBoard : Board
             return position;
         }
 
+        // Apply ChessDotnet move
         game.MakeMove(chessMove.move, true);
 
-        return base.ApplyMove(position, move);
+        // Apply move and switch the cuerrent player
+        return SwitchPlayer(base.ApplyMove(position, move));
     }
 
     /// <summary>

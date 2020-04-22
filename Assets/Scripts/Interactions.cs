@@ -79,6 +79,9 @@ public class Interactions
     /// </summary>
     public void DoNext()
     {
+        // Remove current selection before selecting the new move
+        this.Remove();
+
         // Move to next move option
         move++;
 
@@ -88,8 +91,8 @@ public class Interactions
             move = 0;
         }
 
-        // Update the current selections
-        this.Update();
+        // Apply new state
+        this.Apply();
     }
 
     /// <summary>

@@ -75,7 +75,7 @@ public class Manager : MonoBehaviour
     /// <returns></returns>
     protected virtual Board CreateBoard(Position[] positions)
     {
-        return new Board(positions);
+        return new Board(positions, Player.SinglePlayerArray);
     }
 
     /// <summary>

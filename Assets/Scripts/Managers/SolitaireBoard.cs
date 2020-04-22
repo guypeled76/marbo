@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class SolitaireBoard : Board
 {
-    public SolitaireBoard(Position[] positions) : base(positions)
+    public SolitaireBoard(Position[] positions) : base(positions, Player.SinglePlayerArray)
     {
     }
 
