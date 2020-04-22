@@ -44,7 +44,7 @@ public class ChessBoard : Board
                 continue;
             }
 
-            moves.Add(new Move(newPosition, new Selection(newPosition, MarkerType.Drop)));
+            moves.Add(new Move(newPosition, Action.EmptyArray, new Selection(newPosition, MarkerType.Drop)));
         }
 
         return moves.ToArray();

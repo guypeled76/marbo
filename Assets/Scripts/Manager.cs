@@ -28,12 +28,18 @@ public class Manager : MonoBehaviour
         interactions = new Interactions(this);
     }
 
+    /// <summary>
+    /// Starts the specific board game
+    /// </summary>
     private void Start()
     {
         // Create the game board
         board = CreateBoard(GetComponentsInChildren<Position>());
     }
 
+    /// <summary>
+    /// Handles interactions
+    /// </summary>
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab))

@@ -60,6 +60,13 @@ public class SolitaireBoard : Board
             return;
         }
 
-        moves.Add(new Move(dropPosition, new Selection(dropPosition, MarkerType.Drop)));
+        // The actions to perfome if move is executed
+        Action[] actions = new Action[]
+        {
+            new Action(nextPosition, ActionType.Remove),
+            new Action(position, ActionType.Move, dropPosition)
+        };
+
+        moves.Add(new Move(dropPosition, actions , new Selection(dropPosition, MarkerType.Drop)));
     }
 }

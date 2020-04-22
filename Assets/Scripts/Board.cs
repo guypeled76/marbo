@@ -95,7 +95,53 @@ public class Board
     /// <returns></returns>
     public virtual Position ApplyMove(Position position, Move move)
     {
+
+        ApplyActions(move.actions);
+
+
+
         return move.target;
+    }
+
+    /// <summary>
+    /// Apply board actions
+    /// </summary>
+    /// <param name="actions">The actions to apply</param>
+    private void ApplyActions(Action[] actions)
+    {
+        if(actions == null)
+        {
+            return;
+        }
+
+        foreach(Action action in actions)
+        {
+            ApplyAction(action);
+        }
+    }
+
+    /// <summary>
+    /// Apply board action
+    /// </summary>
+    /// <param name="action">The action to apply.</param>
+    private void ApplyAction(Action action)
+    {
+        if(action == null)
+        {
+            return;
+        }
+
+        Debug.Log(string.Format("Applying action {0} on source='{1}' target='{2}'", action.type, action.source?.name, action.target?.name));
+
+        switch (action.type)
+        {
+            case ActionType.Remove:
+                action.source.RemovePiece();
+                break;
+            case ActionType.Move:
+                Position.MovePiece(action.source, action.target);
+                break;
+        }
     }
 
     /// <summary>

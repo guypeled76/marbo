@@ -64,4 +64,44 @@ public class Position : MonoBehaviour
         this.marker = marker;
         this.markerType = markerType;
     }
+
+    /// <summary>
+    /// Removes the position piece
+    /// </summary>
+    internal void RemovePiece(bool distroy = true)
+    {
+        if(piece == null)
+        {
+            return;
+        }
+
+        if (distroy)
+        {
+            GameObject.Destroy(piece);
+        }
+
+        piece = null;
+    }
+
+    internal static void MovePiece(Position source, Position target)
+    {
+        if(source == null || target == null)
+        {
+            Debug.Log("Inputs are invalid for a move piece action.");
+            return;
+        }
+
+        Piece piece = source.piece;
+        if(piece == null)
+        {
+            Debug.Log("Source position shoule have a piece a move piece action.");
+            return;
+        }
+        target.RemovePiece(true);
+        piece.transform.parent = target.transform;
+        target.piece = piece;
+        source.RemovePiece(false);
+
+
+    }
 }
