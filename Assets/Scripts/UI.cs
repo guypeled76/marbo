@@ -131,6 +131,10 @@ public class UI : MonoBehaviour
 
             this.activeUI.SetActive(true);
         }
+        else
+        {
+            activeUI = null;
+        }
     }
 
     /// <summary>
@@ -138,6 +142,8 @@ public class UI : MonoBehaviour
     /// </summary>
     public void ShowMainScene()
     {
+        Debug.Log("Show main scene");
+
         SceneManager.LoadScene("Main");
     }
 

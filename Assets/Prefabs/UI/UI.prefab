@@ -588,6 +588,16 @@ PrefabInstance:
       propertyPath: m_text
       value: Game  Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 5494388444094875195, guid: 8a1efe69034984a51ab1ebe80d04e089,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494388444094875195, guid: 8a1efe69034984a51ab1ebe80d04e089,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6692211133636076047, guid: 8a1efe69034984a51ab1ebe80d04e089,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -712,6 +722,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 72694085965226294, guid: f4754a9f957724503b7437c0310c3edb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 453904861789583829, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
@@ -846,7 +861,7 @@ PrefabInstance:
     - target: {fileID: 2833730334833826509, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -140
+      value: -183
       objectReference: {fileID: 0}
     - target: {fileID: 2833730334833826509, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
@@ -1123,7 +1138,7 @@ PrefabInstance:
     - target: {fileID: 6647206830930182031, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4754a9f957724503b7437c0310c3edb, type: 3}
@@ -1760,7 +1775,7 @@ PrefabInstance:
     - target: {fileID: 2833730334833826509, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -64
+      value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 2833730334833826509, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
@@ -2062,7 +2077,7 @@ PrefabInstance:
     - target: {fileID: 453904861789583829, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowMain
+      value: ShowMainScene
       objectReference: {fileID: 0}
     - target: {fileID: 453904861789583829, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
@@ -2132,7 +2147,7 @@ PrefabInstance:
     - target: {fileID: 2833730334833826509, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -64
+      value: -162
       objectReference: {fileID: 0}
     - target: {fileID: 2833730334833826509, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
@@ -2177,7 +2192,7 @@ PrefabInstance:
     - target: {fileID: 6647206830930182031, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6647206830930182031, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
@@ -2197,7 +2212,19 @@ PrefabInstance:
     - target: {fileID: 6647206830930182031, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
       propertyPath: m_text
-      value: Quit
+      value: 'Quit
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647206830930182031, guid: f4754a9f957724503b7437c0310c3edb,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6647206830930182031, guid: f4754a9f957724503b7437c0310c3edb,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4754a9f957724503b7437c0310c3edb, type: 3}
@@ -3173,6 +3200,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Back
       objectReference: {fileID: 0}
+    - target: {fileID: 72694085965226294, guid: f4754a9f957724503b7437c0310c3edb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 453904861789583829, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3306,7 +3338,7 @@ PrefabInstance:
     - target: {fileID: 2833730334833826509, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -140
+      value: -170
       objectReference: {fileID: 0}
     - target: {fileID: 2833730334833826509, guid: f4754a9f957724503b7437c0310c3edb,
         type: 3}
