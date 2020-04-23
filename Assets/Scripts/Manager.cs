@@ -22,6 +22,7 @@ public class Manager : MonoBehaviour
     public GameObject unselectableMarker;
     public GameObject removeMarker;
     public GameObject dropMarker;
+    public GameObject ui;
 
     public Manager()
     {
@@ -65,6 +66,13 @@ public class Manager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             interactions.DoMoveSelection(p => p.right);
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(ui != null)
+            {
+                ui.GetComponent<UI>().ShowGameMenu();
+            }
         }
     }
 
