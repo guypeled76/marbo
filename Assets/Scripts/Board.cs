@@ -38,9 +38,14 @@ public class Board
     private int player = 0;
 
     /// <summary>
+    /// The current board manager
+    /// </summary>
+    private Manager manager;
+
+    /// <summary>
     /// Creates an empty board
     /// </summary>
-    public Board() : this(new Position[0], Player.SinglePlayerArray)
+    public Board(Manager manager) : this(manager, new Position[0], Player.SinglePlayerArray)
     {
 
     }
@@ -50,8 +55,9 @@ public class Board
     /// </summary>
     /// <param name="positions">The board positions.</param>
     /// <param name="players">The board player definitions.</param>
-    public Board(Position[] positions, Player[] players)
+    public Board(Manager manager, Position[] positions, Player[] players)
     {
+        this.manager = manager;
         this.players = players;
 
         // Index the positions by name to allow for position navigation
@@ -225,6 +231,9 @@ public class Board
         {
             player = 0;
         }
+
+        // Switch camera view
+        manager.SwitchPlayerCamera(player);
 
         // Get the new current player
         current = this.CurrentPlayer;

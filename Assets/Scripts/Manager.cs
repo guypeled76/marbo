@@ -18,11 +18,23 @@ public class Manager : MonoBehaviour
     /// </summary>
     private readonly Interactions interactions;
 
+    /// <summary>
+    /// The board markers to use to show selections
+    /// </summary>
     public GameObject selectedMarker;
     public GameObject unselectableMarker;
     public GameObject removeMarker;
     public GameObject dropMarker;
+
+    /// <summary>
+    /// The UI root which contains the UI mono behavior
+    /// </summary>
     public GameObject ui;
+
+    /// <summary>
+    /// The game player cameras
+    /// </summary>
+    public GameObject[] playerCameras;
 
     public Manager()
     {
@@ -83,7 +95,7 @@ public class Manager : MonoBehaviour
     /// <returns></returns>
     protected virtual Board CreateBoard(Position[] positions)
     {
-        return new Board(positions, Player.SinglePlayerArray);
+        return new Board(this, positions, Player.SinglePlayerArray);
     }
 
     /// <summary>
@@ -189,6 +201,31 @@ public class Manager : MonoBehaviour
         }
 
         return Utils.CloneObject(originalMarker, parent);
+    }
+
+    /// <summary>
+    /// Switch the active player camera
+    /// </summary>
+    /// <param name="player"></param>
+    internal void SwitchPlayerCamera(int player)
+    {
+        // Make sure that there are cameras
+        if(playerCameras == null || playerCameras.Length == 0)
+        {
+            return;
+        }
+
+       
+
+        // If is a valid camera index
+        if (player > -1 && player < playerCameras.Length)
+        {
+            Debug.Log(string.Format("Switching to camera {0}", player));
+            for (int index = 0; index < playerCameras.Length; index++)
+            {
+                playerCameras[index].SetActive(index == player);
+            }
+        }
     }
 }
 

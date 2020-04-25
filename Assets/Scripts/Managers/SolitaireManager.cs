@@ -6,6 +6,6 @@ public class SolitaireManager : Manager
 
     protected override Board CreateBoard(Position[] positions)
     {
-        return new SolitaireBoard(positions);
+        return new SolitaireBoard(this, positions);
     }
 }

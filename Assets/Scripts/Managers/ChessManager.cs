@@ -7,7 +7,7 @@ public class ChessManager : Manager
 
     protected override Board CreateBoard(Position[] positions)
     {
-        return new ChessBoard(positions);
+        return new ChessBoard(this, positions);
     }
     
 }

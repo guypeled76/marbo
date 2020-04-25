@@ -17,7 +17,7 @@ public class ChessBoard : Board
     /// Create a chess board board managed by ChessDotNet
     /// </summary>
     /// <param name="positions"></param>
-    public ChessBoard(Position[] positions) : base(positions, Player.BlackWhiteArray)
+    public ChessBoard(Manager manager, Position[] positions) : base(manager, positions, Player.BlackWhiteArray)
     {
         game = new ChessDotNet.ChessGame(this.ToString());
     }
