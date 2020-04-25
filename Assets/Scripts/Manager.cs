@@ -102,6 +102,14 @@ public class Manager : MonoBehaviour
     /// <param name="piece">The piece that was requested.</param>
     internal void OnSelectPosition(Position position, Piece piece)
     {
+        Debug.Log("Select position." + DateTime.Now.ToString());
+
+        // If current position is a valid move from current selection
+        /*if(interactions.SelectMoveIfRelevant(position))
+        {
+            return;
+        }*/
+
         if(board.CanMove(position, piece))
         {
             interactions.Select(new Selection(position, MarkerType.Selected), board.GetPossibleMoves(position, piece));

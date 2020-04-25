@@ -199,6 +199,50 @@ public class Interactions
         }
     }
 
+    /// <summary>
+    /// Gets a move from a given position
+    /// </summary>
+    /// <param name="position"></param>
+    /// <returns></returns>
+    private int FindMoveByPosition(Position position)
+    {
+        for(int index=0; index < moves.Length; index++)
+        {
+            if(this.moves[index].target == position)
+            {
+                return index;
+            }
+        }
+
+        return -1;
+    }
+
+    /// <summary>
+    /// Change the current move if the position sent is matching any movement.
+    /// </summary>
+    /// <param name="position">The position to match move for.</param>
+    /// <returns></returns>
+    internal bool SelectMoveIfRelevant(Position position)
+    {
+        // Try to get move from position
+        int moveToBeSelected = FindMoveByPosition(position);
+        if(moveToBeSelected == -1)
+        {
+            return false;
+        }
+
+        // Remove current selection before selecting the new move
+        this.Remove();
+
+        // Set the found move
+        move = moveToBeSelected;
+
+        // Apply new state
+        this.Apply();
+
+        return true;
+    }
+
 
 }
 
