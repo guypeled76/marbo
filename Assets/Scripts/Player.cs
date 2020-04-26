@@ -35,4 +35,14 @@ public class Player
     {
         this.key = key;
     }
+
+    /// <summary>
+    /// Gets a flag indicating if is a white player
+    /// </summary>
+    /// <param name="player"></param>
+    /// <returns></returns>
+    internal static bool IsWhite(Player player)
+    {
+        return player != null & player.key == 'w';
+    }
 }

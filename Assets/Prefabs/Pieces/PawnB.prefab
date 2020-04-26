@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -295538997488469345}
   - component: {fileID: 7382389536529467376}
   m_Layer: 0
-  m_Name: WalkerB
+  m_Name: PawnB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 80
+  color: 1
 --- !u!64 &7382389536529467376
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -14,4 +14,9 @@ public class Action
         this.type = type;
         this.target = target;
     }
+
+    internal static Action[] ToArray(params Action[] actions)
+    {
+        return actions;
+    }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6964446671270724315}
   - component: {fileID: 665847010652841216}
   m_Layer: 0
-  m_Name: TowerB
+  m_Name: RockB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 82
+  color: 1
 --- !u!64 &665847010652841216
 MeshCollider:
   m_ObjectHideFlags: 0
