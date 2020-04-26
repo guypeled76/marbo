@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 98
+  color: 119
 --- !u!64 &881701584689275805
 MeshCollider:
   m_ObjectHideFlags: 0

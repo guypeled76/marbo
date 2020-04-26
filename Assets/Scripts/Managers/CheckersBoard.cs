@@ -36,11 +36,16 @@ public class CheckersBoard : Board
     /// <returns></returns>
     private Move[] GetValidMoves(Position position)
     {
+        // If is not a position that contains the players piece
+        if(!Player.IsPlayerPosition(this.CurrentPlayer, position))
+        {
+            return Move.EmptyArray;
+        }
 
         List<Move> moves = new List<Move>();
 
-
-        if(Player.IsWhite(this.CurrentPlayer))
+        // If is the "white" player
+        if(Player.IsPieceColor(this.CurrentPlayer, PieceColor.White))
         {
             FillValidMoves(moves, position, (p) => p.forwardLeft, (p) => Piece.IsBlack(p));
             FillValidMoves(moves, position, (p) => p.forwardRight, (p) => Piece.IsBlack(p));

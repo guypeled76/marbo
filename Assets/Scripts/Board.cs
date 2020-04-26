@@ -235,15 +235,21 @@ public class Board
         // Switch camera view
         manager.SwitchPlayerCamera(player);
 
-        // Get the new current player
-        current = this.CurrentPlayer;
-        if (current != null && current.last != null)
-        {
-            return current.last;
-        }
+        return FindValidPlayerPosition(current, lastPosition);
+    }
+
+    /// <summary>
+    /// Gets a position that has a players piece
+    /// </summary>
+    /// <param name="current"></param>
+    /// <param name="defaultPosition"></param>
+    /// <returns></returns>
+    public Position FindValidPlayerPosition(Player current, Position defaultPosition = null)
+    {
 
 
-        return lastPosition;
+
+        return defaultPosition;
     }
 
     /// <summary>
@@ -263,7 +269,7 @@ public class Board
 
         // Add player turn information
         builder.Append(' ');
-        builder.Append( this.CurrentPlayer?.key ?? 'p');
+        builder.Append((char)Player.ToPieceColor(this.CurrentPlayer));
         
 
         return builder.ToString();

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8701416597886443000}
   - component: {fileID: 5244326024777258443}
   m_Layer: 0
-  m_Name: TowerW
+  m_Name: RockW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 114
+  color: 119
 --- !u!64 &5244326024777258443
 MeshCollider:
   m_ObjectHideFlags: 0

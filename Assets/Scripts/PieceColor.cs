@@ -2,6 +2,7 @@
 
 public enum PieceColor
 {
-    White,
-    Black
+    Default = '_',
+    White = 'w',
+    Black = 'b'
 }

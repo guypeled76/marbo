@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4266640410116384241}
   - component: {fileID: 3043013422979844479}
   m_Layer: 0
-  m_Name: HorseB
+  m_Name: KnightB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 78
+  color: 98
 --- !u!64 &3043013422979844479
 MeshCollider:
   m_ObjectHideFlags: 0
