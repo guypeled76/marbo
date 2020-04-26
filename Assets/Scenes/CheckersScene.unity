@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: activeUI
       value: 
       objectReference: {fileID: 334074987}
+    - target: {fileID: 4718194176453552512, guid: 1e0cff350d8e84340bc2b0bc63544bca,
+        type: 3}
+      propertyPath: boardCleaner
+      value: 
+      objectReference: {fileID: 896138348}
     - target: {fileID: 6855364640291901864, guid: 1e0cff350d8e84340bc2b0bc63544bca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -476,6 +481,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a02fb5762373944ae93e11a10f38ece3, type: 3}
+--- !u!1 &896138348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1746611756631433256, guid: a02fb5762373944ae93e11a10f38ece3,
+    type: 3}
+  m_PrefabInstance: {fileID: 896138347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1846821001
 GameObject:
   m_ObjectHideFlags: 0

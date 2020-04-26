@@ -19,6 +19,13 @@ public class UI : MonoBehaviour
     /// </summary>
     public UnityEvent showGameMenu;
 
+
+    /// <summary>
+    /// The board cleaner game object that animates cleaning the board
+    /// </summary>
+    public GameObject boardCleaner;
+
+
     /// <summary>
     /// Holds the list of previously opened UIs so we can implement back
     /// </summary>
@@ -142,9 +149,7 @@ public class UI : MonoBehaviour
     /// </summary>
     public void ShowMainScene()
     {
-        Debug.Log("Show main scene");
-
-        SceneManager.LoadScene("Main");
+        StartCoroutine(this.CleanBoardAndShowMainScene());        
     }
 
     /// <summary>
@@ -175,5 +180,47 @@ public class UI : MonoBehaviour
         Debug.Log("Quiting the game.");
 
         Application.Quit();
+    }
+
+    /// <summary>
+    /// Shows the clean board anmimation and switches to the main scene
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator CleanBoardAndShowMainScene()
+    {
+        // If we started the clean board animation
+        if (this.PlayCleanBoardAnimation())
+        {
+            yield return new WaitForSeconds(3);
+        }
+
+        // Load the main scene
+        SceneManager.LoadScene("Main");
+    }
+
+    /// <summary>
+    /// Tries to play the clean board animation
+    /// </summary>
+    /// <returns>True if animation was played.</returns>
+    private bool PlayCleanBoardAnimation()
+    {
+        // If there is a valid board cleaner
+        if (boardCleaner == null)
+        {
+            Debug.Log("Could not find  board cleaner.");
+            return false;
+        }
+
+        // If there is a valid board cleaner animation
+        Animation animation = boardCleaner.GetComponent<Animation>();
+        if (animation == null)
+        {
+            Debug.Log("Could not find  board cleaner animation.");
+            return false;
+        }
+        
+        // Play the animation
+        animation.Play();
+        return true;
     }
 }

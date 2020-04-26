@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 4000010753499118}
   - component: {fileID: 4291746205030006462}
   - component: {fileID: 3731984164959712876}
+  - component: {fileID: 6670482684318000547}
   m_Layer: 0
   m_Name: KingW
   m_TagString: Untagged
@@ -172,6 +173,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7eb09fe47dc91ee46929762f3d756651, type: 3}
+--- !u!54 &6670482684318000547
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012562189616}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1000014107698568
 GameObject:
   m_ObjectHideFlags: 0

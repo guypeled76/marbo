@@ -4138,6 +4138,11 @@ PrefabInstance:
       propertyPath: activeUI
       value: 
       objectReference: {fileID: 525618731}
+    - target: {fileID: 4718194176453552512, guid: 1e0cff350d8e84340bc2b0bc63544bca,
+        type: 3}
+      propertyPath: boardCleaner
+      value: 
+      objectReference: {fileID: 1979556228}
     - target: {fileID: 6855364640291901864, guid: 1e0cff350d8e84340bc2b0bc63544bca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21429,6 +21434,12 @@ PrefabInstance:
       objectReference: {fileID: 1376998632}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef97afc81c19b4cd2bbc9abe6ad1a7d3, type: 3}
+--- !u!1 &1979556228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9048600617688971513, guid: ef97afc81c19b4cd2bbc9abe6ad1a7d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1979556227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1991576343
 Mesh:
   m_ObjectHideFlags: 0

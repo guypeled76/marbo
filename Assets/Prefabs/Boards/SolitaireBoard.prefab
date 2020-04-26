@@ -82,7 +82,8 @@ MonoBehaviour:
   unselectableMarker: {fileID: 7013675499447383261}
   removeMarker: {fileID: 6010768522811580254}
   dropMarker: {fileID: 1978945279968323691}
-  boardState: 
+  ui: {fileID: 0}
+  playerCameras: []
 --- !u!1001 &511585515731467566
 PrefabInstance:
   m_ObjectHideFlags: 0
