@@ -45,9 +45,9 @@ public class Position : MonoBehaviour
         
     }
 
-    internal void OnSelectPiece(Piece piece)
+    internal void OnPieceClicked(Piece piece)
     {
-        GetComponentInParent<Manager>().OnSelectPosition(this, piece);
+        GetComponentInParent<Manager>().OnPoistionClicked(this, piece);
     }
 
     internal void RemoveMarker()

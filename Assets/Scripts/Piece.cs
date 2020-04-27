@@ -10,7 +10,7 @@ public class Piece : MonoBehaviour
 
     private void OnMouseDown()
     {
-        GetComponentInParent<Position>().OnSelectPiece(this);
+        GetComponentInParent<Position>().OnPieceClicked(this);
     }
 
     public static bool IsEmpty(Piece piece)

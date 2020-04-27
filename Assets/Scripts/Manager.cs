@@ -108,20 +108,28 @@ public class Manager : MonoBehaviour
     }
 
     /// <summary>
+    /// Handle the position click event
+    /// </summary>
+    /// <param name="position">The position that was clicked</param>
+    /// <param name="piece">The piece that was clicked</param>
+    internal void OnPoistionClicked(Position position, Piece piece)
+    {
+        // If current position is a valid move from current selection
+        if (interactions.SelectMoveIfRelevant(position))
+        {
+            return;
+        }
+
+        OnSelectPosition(position, piece);
+    }
+
+    /// <summary>
     /// Select a position a primary selection.
     /// </summary>
     /// <param name="position">The position to select.</param>
     /// <param name="piece">The piece that was requested.</param>
     internal void OnSelectPosition(Position position, Piece piece)
     {
-        Debug.Log("Select position." + DateTime.Now.ToString());
-
-        // If current position is a valid move from current selection
-        /*if(interactions.SelectMoveIfRelevant(position))
-        {
-            return;
-        }*/
-
         if(board.CanMove(position, piece))
         {
             interactions.Select(new Selection(position, MarkerType.Selected), board.GetPossibleMoves(position, piece));
