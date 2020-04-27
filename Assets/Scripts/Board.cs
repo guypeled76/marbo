@@ -194,7 +194,7 @@ public class Board
     /// <param name="target">The target position of the move.</param>
     protected virtual void ApplyMoveAction(Position source, Position target)
     {
-        Position.MovePiece(source, target);
+        Position.MovePiece(manager, source, target);
     }
 
     /// <summary>

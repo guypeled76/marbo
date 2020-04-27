@@ -31,6 +31,12 @@ public class Manager : MonoBehaviour
     /// </summary>
     public GameObject ui;
 
+
+    /// <summary>
+    /// The board empty piece
+    /// </summary>
+    public GameObject emptyPiece;
+
     /// <summary>
     /// The game player cameras
     /// </summary>
@@ -172,6 +178,45 @@ public class Manager : MonoBehaviour
     internal void ApplyMove(Position source, Move move)
     {
         this.OnSelectPosition(board.ApplyMove(source, move));
+    }
+
+    /// <summary>
+    /// Create a specific piece
+    /// </summary>
+    /// <param name="pieceType"></param>
+    /// <param name="parent"></param>
+    /// <returns></returns>
+    internal Piece CreatePiece(PieceType pieceType, Position parent)
+    {
+        Piece originalPiece = GetPiece(pieceType);
+
+        if (originalPiece == null)
+        {
+            return null;
+        }
+
+        return Utils.CloneComponent<Piece>(originalPiece, parent);
+    }
+
+    /// <summary>
+    /// Get piece that can be cloned
+    /// </summary>
+    /// <param name="pieceType">The piece type.</param>
+    /// <returns></returns>
+    protected virtual Piece GetPiece(PieceType pieceType)
+    {
+        Piece originalPiece = null;
+
+        switch (pieceType)
+        {
+            case PieceType.Empty:
+                originalPiece = emptyPiece.GetComponent<Piece>();
+                break;
+            default:
+                break;
+        }
+
+        return originalPiece;
     }
 
     /// <summary>

@@ -84,7 +84,7 @@ public class Position : MonoBehaviour
     /// </summary>
     /// <param name="source">The source position.</param>
     /// <param name="target">The target position.</param>
-    internal static void MovePiece(Position source, Position target)
+    internal static void MovePiece(Manager manager, Position source, Position target)
     {
         if(source == null || target == null)
         {
@@ -102,5 +102,6 @@ public class Position : MonoBehaviour
         target.RemovePiece();
         target.piece = Utils.CloneComponent(source.piece, target);
         source.RemovePiece();
+        source.piece = manager.CreatePiece(PieceType.Empty, source);
     }
 }
